@@ -1,0 +1,42 @@
+<head>
+  <title>form_test</title>
+</head>
+
+<body>
+    {{> body}}
+</body>
+
+<template name="body">
+  <div class="container container-fluid">
+    <div class="row">
+      <div class="col-lg-4">
+        <h1>Create</h1>
+        {{> create}}
+      </div>
+      <div class="col-lg-4">
+        <h1>List</h1>
+        <ul>
+          {{#each authors}}
+            {{> author}}
+          {{/each}}
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h1>Update</h1>
+        {{> update}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="create">
+    {{> quickForm collection="Authors" id="insertAuthorForm" type="insert"}}
+</template>
+
+<template name="update">
+    {{> quickForm collection="Authors" doc=editingDoc id="updateAuthorForm" type="update"}}
+</template>
+
+<template name="author">
+    <li>{{name}}</li>
+</template>
